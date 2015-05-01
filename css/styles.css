@@ -6,15 +6,23 @@
 * {
 	box-sizing:border-box;
 }
+html, body {
+	width:100%;
+	height: 100%;
+}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1em;
 }
 #container {
 	max-width: 1024px;
+	min-height: 100%;
 	margin: 0 auto;
 	width: 90%;
 	overflow: hidden;
+	position: relative;
 }
 .clear {
 	clear: both;
@@ -25,78 +33,63 @@ body {
 .right {
 	float: right;
 }
-input[type="text"] {
-	background-color: #fff;
-    background-position: right center;
-    background-repeat: no-repeat;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075) inset;
-    color: #333;
-    font-size: 13px;
-    min-height: 34px;
-    outline: medium none;
-    padding: 7px 8px;
-    vertical-align: middle;
+.blue {
+	color:#3472DA;
 }
-input[type="submit"] {
-	-moz-user-select: none;
-    background-color: #eee;
-    background-image: linear-gradient(#fcfcfc, #eee);
-    border: 1px solid #d5d5d5;
-    border-radius: 3px;
-    color: #333;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 6px 12px;
-    position: relative;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
 /* TYPOGRAPHY */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+
 h1 {
-	font-size: 3em;
+	font-size: 4.5em;
+}
+h1 span {
+	font-weight: 100;
+	color:#3472DA;
 }
 h2 {
-
+	color:#333;
+	font-weight: 100;
+	margin: 0;
+}
+h3 {
+	font-weight: 100;
 }
 a {
-	color: navy;
+	color: #3472DA;
 	font-weight: bold;
 	text-decoration: none;
-	font-size: 1.4	em;
+	font-size: 12px;
 }
 
 table {
 	width:100%;
 }
-tr {
-	border-bottom:1px solid #ccc;
-	
-
-}
 td {
 	width:33.3%;
 	padding:10px;
+	font-size: 12px;
+}
+tr:nth-child(2n) {
+	background: #eee;
 }
 
-/* Intro Animation */
-
-.intro object {
-	margin-top: 15px;
-	margin-right: 20px;
+/* logo */
+.logo {
+	padding: 30px 0;
+	margin: 0 auto;
+	overflow: hidden;
+	max-width: 610px;
 }
-.intro h1 {
+.logo object {
+	margin-top: 0;
+	margin-right: 40px;
+	float: left;
+	width: 200px;
+}
+.logo h1 {
 	position: relative;
 	text-align: center;
-	color:#999;
-}
-h2 {
-	text-align: center;
+	color:#333;
+	float: left;
 }
 
 /* Form */
@@ -104,64 +97,181 @@ form {
 	width: 80%;
 	margin: 0 auto;
 	overflow: hidden;
+	position: relative;
+	margin-top: 30px;
+}
+input[type="text"] {
+	border:0;
+	border-bottom:2px solid #333;
+	font-size: 3em;
+	padding-bottom: 20px;
+	width: 100%;
+	font-weight: 100;
+}
+input[type="submit"] {
+	border:0;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 50px;
+	background: url(../images/search.svg) no-repeat;
+	height: 100%;
+	display: block;
+
+}
+.error {
+	color:red;
+	margin-top: 10px;
+	background: rgba(221, 69, 46, .8);
+	color:#fff;
+	text-align: center;
+	width: 100%;
+	padding: 10px 0;
+	display: none;
+
 }
 
+/* JS */
+.js .header {
+	margin-top: 20%;
+    width: 100%;
+}
+.js .logo object {
+	position: relative;
+	left: 50%;
+	margin-left: -100px;
+}
+.js .logo h1 {
+	opacity: 0;
+}
+.js form {
+	opacity: 0;
+}
 
-/* PRE */
-.pre input[type="text"], 
-.pre input[type="submit"] {
-	font-size: 1.3em;
-}
-.pre .intro {
-	margin: 200px auto 20px;
-    max-width: 370px;
-    overflow: hidden;
-}
-.pre input[type="text"] {
-	width:78%;
-	float: left;
-}
-.pre input[type="submit"] {
-	width: 20%;
-	float: right;
-} 
 /* Post */
-.post .intro {
+.post .header {
+	margin-top: 0;
+}
+.post .logo {
 	width: 25%;
 	float: left;
 }
 .post object {
 	width: 50px;
+    margin-right: 15px;
+}
+.post h1 {
+	font-size: 2em;
+	margin-top: 0;
 }
 .post form {
 	width: 40%;
 	float: right;
 	margin-top: 20px
 }
-.post h1 {
-	font-size: 2em;
+
+/* CSS3 Animations */
+.scaleInOut {
+	animation-name: scaleOutIn;
+    animation-duration: 1s;
+}
+.fadeInDown {
+	animation-name: fadeInDown;
+    animation-duration: .4s;
+}
+.fadeInUp {
+	animation-name: fadeInUp;
+    animation-duration: .4s;
+}
+@keyframes scaleOutIn {
+    0% {
+		transform: scale(1.5);
+    	-webkit-transform: scale(1.5);
+    }
+    25% {
+		transform: scale(1.3);
+    	-webkit-transform: scale(1.3);
+    }
+    75% {
+		transform: scale(1.5);
+    	-webkit-transform: scale(1.5);
+    }
+    100% {
+		transform: scale(1);
+    	-webkit-transform: scale(1);
+    }
+}
+@keyframes fadeInDown {
+    0% {
+		opacity: 0;
+		top:-100px;
+    }
+    100% {
+		opacity: 1;
+		top:0;
+    }
+}
+@keyframes fadeInUp {
+    0% {
+		opacity: 0;
+		bottom:-100px;
+    }
+    100% {
+		opacity: 1;
+		bottom:0;
+    }
+}
+body.post  {
+	background: #efefef;
+}
+.post form {
+	margin-top:30px;
 }
 .post input[type="text"] {
-	width:78%;
-	float: left;
+	background: none repeat scroll 0 0 #eee;
+    border-bottom: 0 none;
+    float: left;
+    font-size: 1em;
+    padding: 5px 10px;
+    width: 100%;
 }
 .post input[type="submit"] {
-	width: 20%;
-	float: right;
-} 
+	height: 50px;
+    right: -10px;
+    top: -8px;
+    transform: scale(0.3);
+    width: 50px;
+}
 .post .header {
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 10px;
-	overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    left: 0;
+    position: fixed;
+    top: 0;
+    background:#fff;
+}
+.post .wrapper {
+	 margin: 0 auto;
+    max-width: 1024px;
+    overflow: hidden;
+    width: 90%;
+}
+.post .logo {
+	padding:17px 0 0;
+	width: 220px;
 }
 /* CONTENT */
 #results-container {
-	margin-top: 80px;
-	width: 100%;
-	clear:both;
+	background: none repeat scroll 0 0 #fff;
+    border-radius: 5px;
+    clear: both;
+    margin-top: 120px;
+    padding: 40px 60px;
+    width: 100%;
 }
 .row {
 	border-bottom:1px solid #ccc;
 	padding-bottom: 20px;
 	margin-bottom: 20px;
 }
+
+/* Animations */
