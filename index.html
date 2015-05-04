@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Search</title>
 
@@ -34,6 +34,9 @@
 
     <div id="results-container"></div><!-- end results-container -->
     <div id="overlay-container"></div><!-- end overlay-container -->
+    <div class="footer">
+      <p>Created by Shivam Bhalla</p>
+    </div>
   </div><!-- end container -->
  
 
@@ -60,25 +63,17 @@
      </table> 
   </script>
   <script type="text/template" id="overlay-template">
-    
-    <table>
-      <% $('.viewDeatails').on('click', function(e) {
-             var id = $(this).attr('href');
-             
-        
-      %>
-      <% _.each(results, function(results) { %>
-        <% if(results.created == id) { %>
-          <tr>
-            <td><%= results.name %></td>
-            <td><%= results.username %></td>
-            <td><%= results.language %></td>
-            <td><%= results.url %></td>
-            <td><%= results.description %></td>
-            <td align="right"><a class="viewDeatails" href="<%= results.created %>">View Details</a></td>
-          </tr> 
-      <% e.preventDefault(); });  } }); %>
-     </table> 
+      <div class="wrapper">
+          <span class="close">&#215;</span>
+          <h2>Title: <%= name %></h2>
+          <h4>Author: <%= username %></h4>
+          
+          <p>Description: <%= description %></p>
+          <p>Language: <%= language %></p>
+          <p>URL: <a href="<%= url %>"><%= url %></a></p>
+        </tr> 
+       </table>
+     </div> 
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>

@@ -1,10 +1,11 @@
 /* normalize.css has been included before this file */
 
-
-
 /* BASE STYLES */
 * {
 	box-sizing:border-box;
+}
+input {
+    -webkit-appearance: none;
 }
 html, body {
 	width:100%;
@@ -15,6 +16,7 @@ html, body {
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1em;
+	min-width: 320px;
 }
 #container {
 	max-width: 1024px;
@@ -78,6 +80,7 @@ tr:nth-child(2n) {
 	margin: 0 auto;
 	overflow: hidden;
 	max-width: 610px;
+	cursor: pointer;
 }
 .logo object {
 	margin-top: 0;
@@ -107,6 +110,7 @@ input[type="text"] {
 	padding-bottom: 20px;
 	width: 100%;
 	font-weight: 100;
+	outline:0;
 }
 input[type="submit"] {
 	border:0;
@@ -114,10 +118,14 @@ input[type="submit"] {
 	right: 20px;
 	top: 20px;
 	width: 50px;
-	background: url(../images/search.svg) no-repeat;
-	height: 100%;
+	background: url(../images/search_icon.png) no-repeat;
+	height: 50px;
 	display: block;
-
+	outline:0;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size:100%;
 }
 .error {
 	color:red;
@@ -128,12 +136,11 @@ input[type="submit"] {
 	width: 100%;
 	padding: 10px 0;
 	display: none;
-
 }
 
 /* JS */
 .js .header {
-	margin-top: 20%;
+	margin-top: 10%;
     width: 100%;
 }
 .js .logo object {
@@ -169,19 +176,237 @@ input[type="submit"] {
 	float: right;
 	margin-top: 20px
 }
+.post .error {
+    clear: both;
+    font-size: 14px;
+    height: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+body.post  {
+	background: #efefef;
+}
+.post form {
+	margin-top:30px;
+}
+.post input[type="text"] {
+	background: none repeat scroll 0 0 #eee;
+    border-bottom: 0 none;
+    float: left;
+    font-size: 1em;
+    padding: 5px 10px;
+    width: 100%;
+}
+.post input[type="submit"] {
+	top:6px;
+	right:5px;
+	width:20px;
+	height:20px;
+}
+.post .header {
+    border-bottom: 1px solid #ccc;
+    left: 0;
+    position: fixed;
+    top: 0;
+    background:#fff;
+}
+.post .wrapper {
+	 margin: 0 auto;
+    max-width: 1024px;
+    overflow: hidden;
+    width: 90%;
+}
+.post .logo {
+	padding:17px 0 0;
+	width: 220px;
+}
+/* CONTENT */
+#results-container {
+	background: none repeat scroll 0 0 #fff;
+    border-radius: 5px;
+    clear: both;
+    margin-top: 120px;
+    padding: 40px 60px;
+    width: 100%;
+    display: none;
+}
+.row {
+	border-bottom:1px solid #ccc;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+/* Overlay */
+#overlay-container {
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:rgba(0,0,0,.7);
+	display: none;
+}
+#overlay-container .wrapper {
+	background:#fff;
+	padding:20px 40px;
+	margin-top: 200px;
+	position: relative;
+}
+#overlay-container .close {
+	display: block;
+	font-size: 16px;
+	position: absolute;
+	top:20px;
+	right:20px;
+	cursor: pointer;
+	color:#333;
+}
+#overlay-container h2 {
+	font-weight: bold;
+	color:#3472DA;
+}
+
+/* Footer */
+.footer {
+	text-align: center;
+	font-size: 12px;
+	color:#999;
+	margin-top: 20px;
+	display: none;
+} 
+
+/* Media Queries */
+@media (max-width: 700px) { 
+	/* Homepage */
+	.logo {
+		max-width: 340px;
+	}
+	h1 {
+		font-size: 2.5em;
+	}
+	/* Intro Screen */
+	.js .header {
+		margin-top: 0;
+	}
+	.logo {
+		max-width: 280px;
+	}
+	.logo object {
+		margin-top: 23px;
+		margin-right: 20px;
+	    width: 60px;
+	}
+	form {
+		margin-top:0;
+	}
+	/* Content */
+	.post .logo {
+		width: 60px;
+	}
+	.post .header {
+		height:90px;
+	}
+	.post object {
+		left: 0;
+	    margin-left: 0;
+	    margin-top: 0;
+	}
+	.post h1 {
+		display: none;
+	}
+	#results-container {
+		margin-top:140px;
+		padding: 20px;
+	}
+	#overlay-container .wrapper {
+		margin-top: 30px;
+	}
+	.post form {
+		width: 70%;
+		margin-bottom: 30px;
+	}
+	input[type="text"] {
+		font-size: 2em;
+		width: 100%;
+	}
+	input[type="submit"] {
+		right: 0;
+		width:25px;
+		height: 25px;
+	}
+	tr:first-child {
+		display: none;
+	}
+	td {
+	    float: left;
+	    font-size: 12px;
+	    padding: 10px;
+	    width: 100%;
+	}
+}
+@media (max-width: 420px) {
+	input[type="text"] {
+    	font-size: 1.3em;
+		padding-top: 9px;
+	}
+}
 
 /* CSS3 Animations */
 .scaleInOut {
+	-webkit-animation-name: scaleOutIn;
+	-webkit-animation-duration: 1s;
 	animation-name: scaleOutIn;
     animation-duration: 1s;
+
 }
 .fadeInDown {
+	-webkit-animation-name: fadeInDown;
+	-webkit-animation-duration: .4s;
 	animation-name: fadeInDown;
     animation-duration: .4s;
 }
 .fadeInUp {
+	-webkit-animation-name: fadeInUp;
+	-webkit-animation-duration: .4s;
 	animation-name: fadeInUp;
     animation-duration: .4s;
+}
+@-webkit-keyframes scaleOutIn {
+    0% {
+		transform: scale(1.5);
+    	-webkit-transform: scale(1.5);
+    }
+    25% {
+		transform: scale(1.3);
+    	-webkit-transform: scale(1.3);
+    }
+    75% {
+		transform: scale(1.5);
+    	-webkit-transform: scale(1.5);
+    }
+    100% {
+		transform: scale(1);
+    	-webkit-transform: scale(1);
+    }
+}
+@-moz-keyframes scaleOutIn {
+    0% {
+		transform: scale(1.5);
+    	-webkit-transform: scale(1.5);
+    }
+    25% {
+		transform: scale(1.3);
+    	-webkit-transform: scale(1.3);
+    }
+    75% {
+		transform: scale(1.5);
+    	-webkit-transform: scale(1.5);
+    }
+    100% {
+		transform: scale(1);
+    	-webkit-transform: scale(1);
+    }
 }
 @keyframes scaleOutIn {
     0% {
@@ -211,6 +436,46 @@ input[type="submit"] {
 		top:0;
     }
 }
+@-webkit-keyframes fadeInDown {
+    0% {
+		opacity: 0;
+		top:-100px;
+    }
+    100% {
+		opacity: 1;
+		top:0;
+    }
+}
+@-moz-keyframes fadeInDown {
+    0% {
+		opacity: 0;
+		top:-100px;
+    }
+    100% {
+		opacity: 1;
+		top:0;
+    }
+}
+@-webkit-keyframes fadeInUp {
+    0% {
+		opacity: 0;
+		bottom:-100px;
+    }
+    100% {
+		opacity: 1;
+		bottom:0;
+    }
+}
+@-moz-keyframes fadeInUp {
+    0% {
+		opacity: 0;
+		bottom:-100px;
+    }
+    100% {
+		opacity: 1;
+		bottom:0;
+    }
+}
 @keyframes fadeInUp {
     0% {
 		opacity: 0;
@@ -221,57 +486,3 @@ input[type="submit"] {
 		bottom:0;
     }
 }
-body.post  {
-	background: #efefef;
-}
-.post form {
-	margin-top:30px;
-}
-.post input[type="text"] {
-	background: none repeat scroll 0 0 #eee;
-    border-bottom: 0 none;
-    float: left;
-    font-size: 1em;
-    padding: 5px 10px;
-    width: 100%;
-}
-.post input[type="submit"] {
-	height: 50px;
-    right: -10px;
-    top: -8px;
-    transform: scale(0.3);
-    width: 50px;
-}
-.post .header {
-    border-bottom: 1px solid #ccc;
-    left: 0;
-    position: fixed;
-    top: 0;
-    background:#fff;
-}
-.post .wrapper {
-	 margin: 0 auto;
-    max-width: 1024px;
-    overflow: hidden;
-    width: 90%;
-}
-.post .logo {
-	padding:17px 0 0;
-	width: 220px;
-}
-/* CONTENT */
-#results-container {
-	background: none repeat scroll 0 0 #fff;
-    border-radius: 5px;
-    clear: both;
-    margin-top: 120px;
-    padding: 40px 60px;
-    width: 100%;
-}
-.row {
-	border-bottom:1px solid #ccc;
-	padding-bottom: 20px;
-	margin-bottom: 20px;
-}
-
-/* Animations */
