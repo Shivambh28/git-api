@@ -37,6 +37,7 @@
 */
 
 (function($) {
+    
     // Use _ to template the resultsTemplating details
     function resultsTemplating(data, inputValue) {
         var results = data,
